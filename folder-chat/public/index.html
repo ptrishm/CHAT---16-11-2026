@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DapurMelty — Marketplace UMKM</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header><a class="brand" href="#catalog"><b>DM</b><span>DapurMelty<small>MARKETPLACE UMKM RASA LOKAL</small></span></a>
+    <nav><a href="#catalog">Katalog</a><a href="#orders" class="private">Pesanan</a><a href="#dashboard" class="staff">Dashboard</a></nav>
+    <div id="account"><button class="outline" onclick="showAuth('login')">Masuk</button><button onclick="showAuth('register')">Daftar</button></div>
+  </header>
+  <main>
+    <section id="catalogView">
+      <div class="hero"><div><span class="eyebrow">✦ Produk pilihan dapur lokal</span><h1>Rasa rumahan,<br><i>lebih dekat.</i></h1><p>Temukan makanan dan minuman terbaik dari UMKM pilihan di sekitarmu.</p><a class="button" href="#products">Jelajahi produk →</a></div><div class="hero-art">🍱<em>🍋</em><strong>🌶️</strong></div></div>
+      <div class="toolbar" id="products"><input id="search" placeholder="Cari makanan, minuman, atau toko…" oninput="loadProducts()"><select id="sort" onchange="loadProducts()"><option value="">Terbaru</option><option value="name">Nama A–Z</option><option value="price_asc">Harga terendah</option><option value="price_desc">Harga tertinggi</option></select></div>
+      <div id="categories" class="chips"></div><div id="productGrid" class="grid"></div>
+    </section>
+    <section id="dashboardView" hidden><div class="page-head"><div><span class="eyebrow">Pusat kendali</span><h2 id="dashTitle">Dashboard</h2></div><button class="sellerOnly" onclick="openProductForm()">+ Tambah produk</button></div><div id="metrics" class="metrics"></div><div id="adminUsers" hidden class="panel"></div><div class="panel"><h3 id="manageTitle">Produk saya</h3><div id="manageProducts" class="table-wrap"></div></div></section>
+    <section id="ordersView" hidden><div class="page-head"><div><span class="eyebrow">Riwayat transaksi</span><h2>Pesanan</h2></div></div><div id="ordersList"></div></section>
+  </main>
+  <aside id="cart" class="cart" hidden><div class="cart-title"><h3>Keranjang Anda</h3><button class="icon" onclick="toggleCart()">×</button></div><div id="cartItems"></div><div class="cart-total">Total <b id="cartTotal">Rp0</b></div><button class="wide" onclick="checkout()">Lanjutkan checkout</button></aside><button id="cartButton" class="floating" hidden onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
+  <dialog id="modal"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></dialog>
+  <div id="toast"></div><script src="/app.js"></script>
+</body></html>
